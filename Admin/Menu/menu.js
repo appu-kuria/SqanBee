@@ -37,10 +37,17 @@ function addItem() {
             var cName = document.createElement('div');
             cName.innerHTML = category;
             var itemsInCategory = items.filter(i => i.category == category);
-            itemsInCategory.forEach(function (item) {
+            itemsInCategory.forEach(function (item, index) {
                 var iName = document.createElement('div');
                 iName.innerHTML = item.name;
+                var btnEdit = document.createElement('button');
+                btnEdit.type="button";
+                btnEdit.textContent="Edit";
+                var editFunction = 'editItem('.concat(index,')')
+                btnEdit.setAttribute('onclick',editFunction)
+                btnEdit.id = 'btnEdit_'.concat(index)
                 cName.appendChild(iName);
+                cName.appendChild(btnEdit);
             })
 
             data.appendChild(cName);
@@ -98,5 +105,9 @@ function hideAddCategoryScreen() {
     document.getElementById("categoryName").style.display = 'none';
     document.getElementById("btnCreateCategory").style.display = 'none';
     document.getElementById("itemDetails").style.display = 'flex';
+}
+
+function editItem(index){
+debugger;
 }
 

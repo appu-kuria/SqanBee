@@ -1,6 +1,9 @@
+<?php 
+    session_start();
+?>
 <html>
     <head>
-        <title>Dashboard </title>
+        <title>Dashboard</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="./profile.css" crossorigin>
@@ -23,7 +26,7 @@
                         </clipPath>
                         </defs>
                     </svg> -->
-                    <h2 class="sidebar__logo-header"><?php echo $_POST['firstName'] ?></h2>    
+                    <h2 class="sidebar__logo-header"><?php echo $_SESSION['user_id']  ?></h2>    
                 </div>
                 <ul class="side-nav">
                     <span class="side-nav__header">Main Menu</span>
@@ -95,16 +98,17 @@
                     </li> -->
                 </ul>
 
+               
 
                 <ul class="side-nav">
                     <span class="side-nav__header">Brand Related</span>
-                    <li class="side-nav__item">
+                    <a href="./../Brand/brand.php"><li class="side-nav__item">
                         <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M2.75 8.85081V14.14C2.75 16.0833 2.75 16.0833 4.58333 17.3208L9.625 20.2358C10.3858 20.6758 11.6233 20.6758 12.375 20.2358L17.4167 17.3208C19.25 16.0833 19.25 16.0833 19.25 14.1491V8.85081C19.25 6.91664 19.25 6.91664 17.4167 5.67914L12.375 2.76414C11.6233 2.32414 10.3858 2.32414 9.625 2.76414L4.58333 5.67914C2.75 6.91664 2.75 6.91664 2.75 8.85081Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M11 14.25C12.5188 14.25 13.75 13.0188 13.75 11.5C13.75 9.98122 12.5188 8.75 11 8.75C9.48122 8.75 8.25 9.98122 8.25 11.5C8.25 13.0188 9.48122 14.25 11 14.25Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>                        
                         <span>Add a Brand</span>
-                    </li>
+                    </li></a>
                     <li class="side-nav__item">
                         <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M11.0002 20.6666C16.0418 20.6666 20.1668 16.5416 20.1668 11.5C20.1668 6.45831 16.0418 2.33331 11.0002 2.33331C5.9585 2.33331 1.8335 6.45831 1.8335 11.5C1.8335 16.5416 5.9585 20.6666 11.0002 20.6666Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -277,7 +281,7 @@
                     </div>
                     <div class="box transaction-box">
                         <div class="header-container">
-                            <h3 class="section-header">Somedata can be showed here</h3>
+                            <h3 class="section-header">List of Brands and Outlets</h3>
                             <!-- <div class="date-selector">
                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M6 1.5V3.75" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
@@ -294,15 +298,15 @@
                                 <span>1 Jan - 1 Feb 2022</span>       
                             </div>                                 -->
                         </div>
-                        <!-- <table class="transaction-history">
+                        <table class="transaction-history">
                             <tr>
-                                <th>Transactions</th>
-                                <th>Date
+                                <th>Outlet Name</th>
+                                <th>Brand Name
                                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M9.96004 4.47498L6.70004 7.73498C6.31504 8.11998 5.68504 8.11998 5.30004 7.73498L2.04004 4.47498" stroke="#90A3BF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>                                        
                                 </th>
-                                <th>Amount
+                                <!-- <th>Amount
                                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M9.96004 4.47498L6.70004 7.73498C6.31504 8.11998 5.68504 8.11998 5.30004 7.73498L2.04004 4.47498" stroke="#90A3BF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>                                        
@@ -311,33 +315,34 @@
                                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M9.96004 4.47498L6.70004 7.73498C6.31504 8.11998 5.68504 8.11998 5.30004 7.73498L2.04004 4.47498" stroke="#90A3BF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>                                       
-                                </th>
+                                </th> -->
                             </tr>
-                            <tr>
-                                <td>
-                                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="18" cy="18" r="18" fill="#33B938" fill-opacity="0.1"/>
-                                        <path d="M24.875 21.8125V23.875H11.125V21.8125C11.125 21.4344 11.4344 21.125 11.8125 21.125H24.1875C24.5656 21.125 24.875 21.4344 24.875 21.8125Z" fill="#33B938" stroke="#33B938" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <path d="M13.6875 20.625V16.8125H14.0625V20.625H13.6875Z" fill="#33B938" stroke="#33B938"/>
-                                        <path d="M16.4375 20.625V16.8125H16.8125V20.625H16.4375Z" fill="#33B938" stroke="#33B938"/>
-                                        <path d="M19.1875 20.625V16.8125H19.5625V20.625H19.1875Z" fill="#33B938" stroke="#33B938"/>
-                                        <path d="M21.9375 20.625V16.8125H22.3125V20.625H21.9375Z" fill="#33B938" stroke="#33B938"/>
-                                        <path d="M25.5625 23.8906H10.4375C10.4367 23.8906 10.436 23.8905 10.4346 23.89C10.4328 23.8892 10.4302 23.8876 10.4275 23.885C10.4249 23.8823 10.4233 23.8797 10.4225 23.8779C10.422 23.8765 10.4219 23.8758 10.4219 23.875C10.4219 23.8742 10.422 23.8735 10.4225 23.8721C10.4233 23.8703 10.4249 23.8677 10.4275 23.865C10.4302 23.8624 10.4328 23.8608 10.4346 23.86C10.436 23.8595 10.4367 23.8594 10.4375 23.8594H25.5625C25.5633 23.8594 25.564 23.8595 25.5654 23.86C25.5672 23.8608 25.5698 23.8624 25.5725 23.865C25.5751 23.8677 25.5767 23.8703 25.5775 23.8721C25.578 23.8735 25.5781 23.8742 25.5781 23.875C25.5781 23.8758 25.578 23.8765 25.5775 23.8779C25.5767 23.8797 25.5751 23.8823 25.5725 23.885C25.5698 23.8876 25.5672 23.8892 25.5654 23.89C25.564 23.8905 25.5633 23.8906 25.5625 23.8906Z" fill="#33B938" stroke="#33B938"/>
-                                        <path d="M18.058 10.691C18.0659 10.6923 18.0707 10.6934 18.0725 10.6939L24.2562 13.1674C24.2675 13.1719 24.302 13.1932 24.335 13.2419C24.368 13.2904 24.375 13.33 24.375 13.3425V15.625C24.375 15.727 24.2895 15.8125 24.1875 15.8125H11.8125C11.7105 15.8125 11.625 15.727 11.625 15.625V13.3425C11.625 13.33 11.632 13.2904 11.665 13.2419C11.698 13.1932 11.7325 13.1719 11.7438 13.1674L17.9275 10.6939C17.9293 10.6934 17.9341 10.6923 17.942 10.691C17.9573 10.6886 17.9775 10.6869 18 10.6869C18.0225 10.6869 18.0427 10.6886 18.058 10.691ZM16.4688 13.5625C16.4688 14.4093 17.1532 15.0938 18 15.0938C18.8468 15.0938 19.5312 14.4093 19.5312 13.5625C19.5312 12.7157 18.8468 12.0313 18 12.0313C17.1532 12.0313 16.4688 12.7157 16.4688 13.5625Z" fill="#33B938" stroke="#33B938"/>
-                                    </svg>                                        
-                                    Bank Transfer
-                                </td>
-                                <td>Jan 01,2022</td>
-                                <td>$2,000.00</td>
-                                <td>
-                                    <svg class="status" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="16" height="16" rx="8" fill="#BCE455" fill-opacity="0.3"/>
-                                        <circle cx="8" cy="8" r="4" fill="#7FB519"/>
-                                    </svg>                                        
-                                    Completed
-                                </td>
-                            </tr>
-                            <tr>
+                        <?php 
+                        $serverName = "localhost";
+                        $userName = "root";
+                        $password = "";
+                        $dbName = "SQANBEE";
+                        $conn = new mysqli($serverName, $userName, $password, $dbName) or die(mysqli_error($conn));
+                        if ($conn->connect_errno) {
+                            echo("Connect failed: %s\n". $conn->connect_error);
+                            exit();
+                        }else{
+                        }
+                                                    //Read Data from DB
+                                                        $sql = "SELECT * FROM SB_Brands WHERE user_id = $_SESSION[user_id];";
+                                                        $result = mysqli_query($conn, $sql);
+                                                        $resultCheck = mysqli_num_rows($result);
+                                                        if($resultCheck > 0){
+                                                            while($row = mysqli_fetch_assoc($result)){
+                                                                // echo '<tr><td>'.$row['brand_name'].'</td></tr>';
+                                                                echo "<tr><td></td><td>".$row['brand_name']."</td></tr>";
+                                                            };
+                                                        }else{
+                                                            echo "No results to display";
+                                                        }
+                        ?>
+                            
+                            <!-- <tr>
                                 <td>
                                     <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="18" cy="18" r="18" fill="#EBF4FF"/>
@@ -393,8 +398,8 @@
                                     </svg>                                        
                                     On Hold
                                 </td>
-                            </tr>
-                        </table> -->
+                            </tr> -->
+                        </table>
                     </div>                   
                 </div>
                 <div class="bottom-container__right">

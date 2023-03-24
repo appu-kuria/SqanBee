@@ -10,7 +10,7 @@
 <body onload="onLoad()">
     <div class="container">
         <div class="title">Registration</div>
-        <form action="./../../ProfilePage/profile.php" method="post">
+        <form action="./signupPageDB.php" method="post">
             <div class="user_details">
                 <div class="input_pox">
                     <span class="datails">First Name</span>

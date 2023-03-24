@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 
 <html lang="en">
 <head>
@@ -9,8 +12,8 @@
 </head>
 <body onload="onLoad()">
     <div class="container">
-        <div class="title">Add Brand Details</div>
-        <form action="./../Outlet/outlet.php" method="post" name="brandForm" onsubmit= "return validate()">
+        <div class="title">Hi <?php echo $_SESSION['firstName'] ?> Add Brand Details</div>
+        <form action="./brandDB.php" method="post" name="brandForm" onsubmit= "return validate()">
             <div class="user_details">
                 <div class="input_pox">
                     <span class="datails">Brand Name</span>

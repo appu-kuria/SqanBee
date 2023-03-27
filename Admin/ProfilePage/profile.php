@@ -76,11 +76,13 @@ echo "No results to display";
                 </ul>
                 <ul class="side-nav">
                     <span class="side-nav__header">Outlet Related</span>
-                    <li class="side-nav__item">
-                    <?php echo drawSVG("addOutletIcon");?>
+                    <a href="./../Outlet/outlet.php">
+                        <li class="side-nav__item">
+                        
+                        <?php echo drawSVG("addOutletIcon");?>
                                                
                         <span>Add an Outlet</span>
-                    </li>
+                    </li></a>
                     <li class="side-nav__item">
                     <?php echo drawSVG("editOutletIcon");?>
                                               
@@ -93,6 +95,27 @@ echo "No results to display";
                     </li>
                 </ul>
 
+
+                <ul class="side-nav">
+                    <span class="side-nav__header">Menu Related</span>
+                    <a href="./../Menu/menu.php">
+                        <li class="side-nav__item">
+                        
+                        <?php echo drawSVG("addOutletIcon");?>
+                                               
+                        <span>Add a Menu</span>
+                    </li></a>
+                    <li class="side-nav__item">
+                    <?php echo drawSVG("editOutletIcon");?>
+                                              
+                        <span>Edit a Menu</span>
+                    </li>
+                    <li class="side-nav__item">
+                                                
+                    <?php echo drawSVG("deleteOutletIcon");?>
+                        <span>Delete a Menu</span>
+                    </li>
+                </ul>
 
                 <ul class="side-nav">
                     <span class="side-nav__header">Preferences</span>

@@ -20,7 +20,7 @@
     }
 ?>
 
-        <form action="./../ProfilePage/profile.php" method="POST">
+        <form action="" method="POST">
             <select name='user'>
                 
         <?php
@@ -46,12 +46,12 @@
             if(!empty($_POST['user'])) {
                 $selected = $_POST['user'];
                 $_SESSION['user_id'] = $selected;
-                echo 'You have chosen:' . $selected;
+                header("Location: ./../ProfilePage/profile.php");
+                exit();
             } else {
                 echo 'Please select the value.';
             }
             }
-            echo "Session value : ".$_SESSION['user_id'];
         ?>
         <script src="./signin.js"></script>
     </body> 

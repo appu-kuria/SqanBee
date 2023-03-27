@@ -13,16 +13,14 @@ echo"about to start connect database operation ";
     }else{
         echo"<br>No error in connection with db";
     }
-?>
-<?php
 //Read Data from DB
-$sql = "SELECT * FROM SB_Users WHERE phonenumber = $_SESSION[phoneNumber];";
+$sql = "SELECT * FROM SB_Users WHERE user_id = $_SESSION[user_id];";
 $result = mysqli_query($conn, $sql);
 $resultCheck = mysqli_num_rows($result);
 if($resultCheck > 0){
     echo "There are some result<br>";
     while($row = mysqli_fetch_assoc($result)){
-        $_SESSION['user_id']=$row['user_id'];
+        // $_SESSION['user_id']=$row['user_id'];
     };
 }else{
     echo "No results to display";

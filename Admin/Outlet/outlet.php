@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="./outlet.css">
     <title>Outlet</title>
 </head>
-
+<?php
+session_start();
+include './../../Constants/config.php';
+?>
 <body onload="onLoad()">
     <div class="container">
         <div class="title">Add Outlet</div>
@@ -17,9 +20,19 @@
                 <div class="input_pox">
                     <span class="datails">Create outlet for
                         <select>
+                            <option value="" selected disabled>Select a brand</option>
+                            <?php
+                                $sql = "SELECT * FROM SB_Brands WHERE user_id = $_SESSION[user_id];";
+                                $result = mysqli_query($conn, $sql);
+                                $resultCheck = mysqli_num_rows($result);
+                                if($resultCheck > 0){
+                                    while($row = mysqli_fetch_assoc($result)){
+                                        echo "<option value=".$row['brand_name'].">".$row['brand_name']."</option>";
+                                    };
+                                }
+                                
+                            ?>
                             <option value="Select">Select</option>
-                            <option value="Vineet">Brand1</option>
-                            <option value="Sumit">Brand2</option>
                         </select>
                     </span>
                 </div>

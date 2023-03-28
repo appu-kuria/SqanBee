@@ -1,5 +1,8 @@
 <html lang="en">
-
+<?php
+session_start();
+    include './../../Constants/config.php';
+?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,9 +20,18 @@
                 <div class="input_pox">
                     <span class="datails">Add menu for
                         <select>
-                            <option value="Select">Select Brand</option>
-                            <option value="Vineet">Brand1</option>
-                            <option value="Sumit">Brand2</option>
+                            <option value="" selected disabled>Select a brand</option>
+                            <?php
+                                $sql = "SELECT * FROM SB_Brands WHERE user_id = $_SESSION[user_id];";
+                                $result = mysqli_query($conn, $sql);
+                                $resultCheck = mysqli_num_rows($result);
+                                if($resultCheck > 0){
+                                    while($row = mysqli_fetch_assoc($result)){
+                                        echo "<option value=".$row['brand_name'].">".$row['brand_name']."</option>";
+                                    };
+                                }
+                                
+                            ?>
                         </select>
                     </span>
                 </div>

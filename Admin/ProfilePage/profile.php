@@ -1,44 +1,34 @@
 <?php 
-session_start();
-
-$serverName = "localhost";
-$userName = "root";
-$password = "";
-$dbName = "SQANBEE";
-$conn = new mysqli($serverName, $userName, $password, $dbName) or die(mysqli_error($conn));
-if ($conn->connect_errno) {
-    echo("Connect failed: %s\n". $conn->connect_error);
-    exit();
-}else{
-    
-}
-//Read Data from DB
-$sql = "SELECT * FROM SB_Users WHERE user_id = $_SESSION[user_id];";
-$result = mysqli_query($conn, $sql);
-$resultCheck = mysqli_num_rows($result);
-if($resultCheck > 0){
-while($row = mysqli_fetch_assoc($result)){
-    $user=array(
-        'phonenumber' => $row['phonenumber'],
-        'user_id' => $row['user_id'],
-        'firstName' => $row['firstName'],
-        'lastName' => $row['lastName'],
-        'email' => $row['email'],
-    );
-};
-}else{
-echo "No results to display";
-}
+    session_start();
+    include './../../Constants/config.php';
+    //Read Data from DB
+    $sql = "SELECT * FROM SB_Users WHERE user_id = $_SESSION[user_id];";
+    $result = mysqli_query($conn, $sql);
+    $resultCheck = mysqli_num_rows($result);
+    if($resultCheck > 0){
+    while($row = mysqli_fetch_assoc($result)){
+        $user=array(
+            'phonenumber' => $row['phonenumber'],
+            'user_id' => $row['user_id'],
+            'firstName' => $row['firstName'],
+            'lastName' => $row['lastName'],
+            'email' => $row['email'],
+        );
+    };
+    }else{
+    echo "No results to display";
+    }
 ?>
+
 <html>
     <head>
         <title>Dashboard</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="./profile.css" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-</html>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="./profile.css" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    </head>
+    
 <body>
     <div class="container">
         <nav class="sidebar">            
@@ -364,4 +354,4 @@ echo "No results to display";
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./profile.js"></script>
 </body>
-    </head>
+</html>

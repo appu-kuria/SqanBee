@@ -46,6 +46,8 @@
             if(!empty($_POST['user'])) {
                 $selected = $_POST['user'];
                 $_SESSION['user_id'] = $selected;
+                echo 'You have chosen:' . $selected;
+                echo "Session value : ".$_SESSION['user_id'];
                 header("Location: ./../ProfilePage/profile.php");
                 exit();
             } else {

@@ -1,18 +1,20 @@
 <?php 
-    session_start();
+include './../../Constants/config.php';
 
-    $serverName = "localhost";
-    $userName = "root";
-    $password = "";
-    $dbName = "SQANBEE";
-echo"about to start connect database operation ";
-    $conn = new mysqli($serverName, $userName, $password, $dbName) or die(mysqli_error($conn));
-    if ($conn->connect_errno) {
-        echo("Connect failed: %s\n". $conn->connect_error);
-        exit();
-    }else{
-        echo"<br>No error in connection with db";
-    }
+//     session_start();
+
+//     $serverName = "localhost";
+//     $userName = "root";
+//     $password = "";
+//     $dbName = "SQANBEE";
+// echo"about to start connect database operation ";
+//     $conn = new mysqli($serverName, $userName, $password, $dbName) or die(mysqli_error($conn));
+//     if ($conn->connect_errno) {
+//         echo("Connect failed: %s\n". $conn->connect_error);
+//         exit();
+//     }else{
+//         echo"<br>No error in connection with db";
+//     }
 //Read Data from DB
 $sql = "SELECT * FROM SB_Users WHERE user_id = $_SESSION[user_id];";
 $result = mysqli_query($conn, $sql);

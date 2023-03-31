@@ -51,14 +51,15 @@
 
                 <ul class="side-nav">
                     <span class="side-nav__header">Brand Related</span>
-                    <a href="./../Brand/brand.php"><li class="side-nav__item">
+                    <a href="./../Brand/Add/brand.php"><li class="side-nav__item">
                     <?php echo drawSVG("addBrandIcon");?>
                         <span>Add a Brand</span>
                     </li></a>
+                    <a href="./../Brand/Edit/brand.php">
                     <li class="side-nav__item">
                     <?php echo drawSVG("editBrandIcon");?>
                         <span>Edit a Brand</span>
-                    </li>
+                    </li></a>
                     <li class="side-nav__item">
                     <?php echo drawSVG("deleteBrandIcon");?>                  
                         <span>Delete a Brand</span>

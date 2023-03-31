@@ -1,8 +1,9 @@
 <html lang="en">
 <?php
 session_start();
-    include './../../Constants/config.php';
+include './../../Constants/config.php';
 ?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,33 +15,32 @@ session_start();
 <body onload="onLoad()">
     <div class="container">
         <div class="title">Add Menu</div>
-        <form action="./../Outlet/outlet.html" method="post" name="brandForm" onsubmit="return validate()">
+        <form method="post" action="./menuDB.php" name="brandForm" onsubmit="return validate()">
             <div class="user_details">
 
                 <div class="input_pox">
                     <span class="datails">Add menu for
-                        <select>
+                        <select id="brand_id" onchange="onBrandSelect()">
                             <option value="" selected disabled>Select a brand</option>
                             <?php
-                                $sql = "SELECT * FROM SB_Brands WHERE user_id = $_SESSION[user_id];";
-                                $result = mysqli_query($conn, $sql);
-                                $resultCheck = mysqli_num_rows($result);
-                                if($resultCheck > 0){
-                                    while($row = mysqli_fetch_assoc($result)){
-                                        echo "<option value=".$row['brand_name'].">".$row['brand_name']."</option>";
-                                    };
+                            $sql = "SELECT * FROM SB_Brands WHERE user_id = $_SESSION[user_id];";
+                            $result = mysqli_query($conn, $sql);
+                            $resultCheck = mysqli_num_rows($result);
+                            if ($resultCheck > 0) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo "<option value=" . $row['brand_id'] . ">" . $row['brand_name'] . "</option>";
                                 }
-                                
+                                ;
+                            }
+
                             ?>
                         </select>
                     </span>
                 </div>
                 <div class="input_pox">
                     <span class="datails">
-                        <select>
-                            <option value="Select">Select Outlet</option>
-                            <option value="Vineet">Outlet1</option>
-                            <option value="Sumit">Outlet2</option>
+                        <select id="outlet_id" name ="outlet_id">
+                            <option value="">Select Outlet</option>
                         </select>
                     </span>
                 </div>
@@ -51,13 +51,13 @@ session_start();
                     <!-- <span class="datails">Outlet Name</span> -->
                     <input type="text" placeholder="Category Name" name="categoryName" id="categoryName">
                     <span class="error-message" id="errCatName">Please enter a valid category name</span>
-                   <div id="lblCategory">Add items for category - </div>
-                </div> 
+                    <div id="lblCategory">Add items for category - </div>
+                </div>
                 <div>
-                    <input type="button" value="Add Items" id="btnCreateCategory"  onclick="createCategory()">
+                    <input type="button" value="Add Items" id="btnCreateCategory" onclick="createCategory()">
                 </div>
             </div>
-            <div class="user_details" id = "itemDetails">
+            <div class="user_details" id="itemDetails">
                 <div class="input_pox">
                     <span class="datails">Item Name *</span>
                     <input type="text" placeholder="" name="itemName" id="itemName">
@@ -70,7 +70,7 @@ session_start();
                 </div>
                 <div class="input_pox">
                     <span class="datails">Price *</span>
-                    <input type="text" placeholder="" name="price" id="price"> 
+                    <input type="text" placeholder="" name="price" id="price">
                     <span class="error-message" id="errPrice">Please enter a valid price.</span>
                 </div>
                 <div class="input_pox">
@@ -81,17 +81,20 @@ session_start();
                     <input type="button" value="Save" id="saveItem" onClick="addItem()">
                 </div>
             </div>
-            
+
             <div class="button">
                 <input type="button" value="Add Another Category" id="addNewCategory" onclick="addAnotherCategory()">
                 <p></p>
-                <input type="submit" value="Create Outlet" id="submit">
+                <input type="submit" onclick="sendData()" value="Continue" id="submit">
             </div>
             <div id="addedItems">
-                
+
             </div>
+            <input type="text" placeholder="" name="categories" id="categories" hidden>
+            <input type="text" placeholder="" name="items" id="items" hidden>
         </form>
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="./menu.js"></script>
 </body>
 

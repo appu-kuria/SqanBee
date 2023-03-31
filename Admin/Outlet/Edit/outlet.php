@@ -18,7 +18,7 @@ include './../../Constants/config.php';
             <div class="user_details">
 
                 <div class="input_pox">
-                    <span class="datails">Create outlet for
+                    <span class="datails">Edit outlet for
                         <select>
                             <option value="" selected disabled>Select a brand</option>
                             <?php
@@ -33,6 +33,15 @@ include './../../Constants/config.php';
                                 
                             ?>
                             <option value="Select">Select</option>
+                        </select>
+                    </span>
+                </div>
+                <div class="input_pox">
+                    <span class="datails">
+                        <select>
+                            <option value="Select">Select Outlet</option>
+                            <option value="Vineet">Outlet1</option>
+                            <option value="Sumit">Outlet2</option>
                         </select>
                     </span>
                 </div>
@@ -89,7 +98,7 @@ include './../../Constants/config.php';
                 </div>
             </div> -->
                 <div class="button">
-                    <input type="submit" value="Create Outlet" id="submit">
+                    <input type="submit" value="Save Changes" id="submit">
                 </div>
 
             </div>

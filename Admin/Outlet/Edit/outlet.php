@@ -6,20 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./outlet.css">
     <title>Outlet</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="./outlet.js"></script>
 </head>
 <?php
 session_start();
-include './../../Constants/config.php';
+include './../../../Constants/config.php';
 ?>
 <body onload="onLoad()">
     <div class="container">
         <div class="title">Add Outlet</div>
-        <form action="./../Menu/menu.php" method="post" name="brandForm" onsubmit="return validate()">
+        <form action="./editOutletDB.php" method="post" name="brandForm" onsubmit="return validate()">
             <div class="user_details">
 
                 <div class="input_pox">
                     <span class="datails">Edit outlet for
-                        <select>
+                        <select id="brand_id" onchange="onBrandSelect()">
                             <option value="" selected disabled>Select a brand</option>
                             <?php
                                 $sql = "SELECT * FROM SB_Brands WHERE user_id = $_SESSION[user_id];";
@@ -27,7 +29,7 @@ include './../../Constants/config.php';
                                 $resultCheck = mysqli_num_rows($result);
                                 if($resultCheck > 0){
                                     while($row = mysqli_fetch_assoc($result)){
-                                        echo "<option value=".$row['brand_name'].">".$row['brand_name']."</option>";
+                                        echo "<option value=".$row['brand_id'].">".$row['brand_name']."</option>";
                                     };
                                 }
                                 
@@ -38,10 +40,8 @@ include './../../Constants/config.php';
                 </div>
                 <div class="input_pox">
                     <span class="datails">
-                        <select>
-                            <option value="Select">Select Outlet</option>
-                            <option value="Vineet">Outlet1</option>
-                            <option value="Sumit">Outlet2</option>
+                        <select id="outlet_id" name ="outlet_id" onchange="onOutletSelect()">
+                            <option value="">Select Outlet</option>
                         </select>
                     </span>
                 </div>
@@ -75,7 +75,7 @@ include './../../Constants/config.php';
 
                 <div class="input_pox">
                     <span class="datails">Phone</span>
-                    <input type="text" placeholder="Eg:Kakkanad" name="state" id="state">
+                    <input type="text" placeholder="Eg:Kakkanad" name="phone" id="phone">
                 </div>
                 <!-- <div class="gender_details">
                 <input type="radio" name="gender" id="dot-1">
@@ -104,7 +104,6 @@ include './../../Constants/config.php';
             </div>
         </form>
     </div>
-    <script src="./outlet.js"></script>
 </body>
 
 </html>

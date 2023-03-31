@@ -15,3 +15,51 @@ function onSubmit(){
 function validate(outletDetails){
     console.log("User Details : ",outletDetails);
 }
+
+function onBrandSelect() {
+    var brand_id = document.getElementById("brand_id").value
+    if (brand_id) {
+        $.ajax({
+            type: 'POST',
+            url: './../../Menu/backend-script.php',
+            data: { 'brand_id': brand_id },
+            success: function (result) {
+
+                debugger;
+                document.getElementById("outlet_id").innerHTML = result;
+
+            }
+        });
+    } else {
+        debugger
+        //   $('#state').html('<option value="">Country</option>');
+        //   $('#city').html('<option value=""> State </option>'); 
+    }
+};
+
+function onOutletSelect() {
+    var outlet_id = document.getElementById("outlet_id").value
+    if (outlet_id) {
+        $.ajax({
+            type: 'POST',
+            url: './../../Menu/backend-script.php',
+            data: { 'outlet_id': outlet_id },
+            success: function (result) {
+                result = JSON.parse(result);
+                document.getElementById("outletName").value = result.outlet_name;
+                // document.getElementById("buildingNo").value = result;
+                document.getElementById("place").value = result.outlet_location;
+                // document.getElementById("locality").value = result;
+                // document.getElementById("city").value = result;
+                // document.getElementById("state").value = result;
+                // document.getElementById("city").value = result;
+                // document.getElementById("phone").value = result;
+
+            }
+        });
+    } else {
+        debugger
+        //   $('#state').html('<option value="">Country</option>');
+        //   $('#city').html('<option value=""> State </option>'); 
+    }
+};

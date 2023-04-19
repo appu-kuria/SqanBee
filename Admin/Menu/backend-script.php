@@ -1,9 +1,11 @@
 <?php
 
-$serverName = "localhost";
-$userName = "root";
-$password = "";
-$dbName = "SQANBEE";
+include './../../Constants/config.php';
+
+// $serverName = "localhost";
+// $userName = "root";
+// $password = "";
+// $dbName = "SQANBEE";
 $conn = new mysqli($serverName, $userName, $password, $dbName) or die(mysqli_error($conn));
 if ($conn->connect_errno) {
     echo ("Connect failed: %s\n" . $conn->connect_error);

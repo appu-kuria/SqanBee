@@ -139,7 +139,7 @@ if ($resultCheck > 0) {
             <ul class="side-nav">
                 <li class="side-nav__item last-item">
                     <?php echo drawSVG("logOutIcon"); ?>
-                    <span>Log Out</span>
+                    <span><a href="./../Logout/logout.php">Log Out</a></span>
                 </li>
             </ul>
         </nav>
@@ -251,10 +251,6 @@ if ($resultCheck > 0) {
                                 </th>
                             </tr>
                             <?php
-                            $serverName = "localhost";
-                            $userName = "root";
-                            $password = "";
-                            $dbName = "SQANBEE";
                             $conn = new mysqli($serverName, $userName, $password, $dbName) or die(mysqli_error($conn));
                             if ($conn->connect_errno) {
                                 echo ("Connect failed: %s\n" . $conn->connect_error);
@@ -300,7 +296,7 @@ if ($resultCheck > 0) {
                         <p>Across 2 Outlets</p>
                         <div class="button-box">
                             <button class="btn btn-yellow">
-                                <span>Cancel subscription</span>
+                                <span>Add more QR</span>
                             </button>
                             <button class="btn btn-white">
                                 <span>Contact Us</span>

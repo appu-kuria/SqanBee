@@ -1,61 +1,35 @@
-<html>
-    <head>
-        <title>Sign In</title>
-    </head>
-    <body>
-    <?php 
-    session_start();
-    include './../../Constants/config.php';
-
-    // $serverName = "localhost";
-    // $userName = "root";
-    // $password = "";
-    // $dbName = "SQANBEE";
-    echo"about to start connect database operation ";
+<?php
+session_start();
+include './../../Constants/config.php';
     $conn = new mysqli($serverName, $userName, $password, $dbName) or die(mysqli_error($conn));
     if ($conn->connect_errno) {
         echo("Connect failed: %s\n". $conn->connect_error);
         exit();
     }else{
         echo"<br>No error in connection with db";
+        echo"<br>username'".$_POST['username']."' type : ".gettype($_POST['username']);
+        echo"<br>password'".$_POST['password']."' type : ".gettype($_POST['password']);
+        $pass = $_POST['password'];
     }
-?>
-
-        <form action="" method="POST">
-            <select name='user'>
-                
-        <?php
-            //Read Data from DB
-            $sql = "SELECT * FROM SB_Users WHERE is_active;";
-            $result = mysqli_query($conn, $sql);
-            $resultCheck = mysqli_num_rows($result);
-            if($resultCheck > 0){
-                echo "There are some result<br>";
-                while($row = mysqli_fetch_assoc($result)){
-                    echo "<option value=".$row['user_id'].">".$row['firstName']."</option>";
-                };
-            }else{
-                echo "No results to display";
+        // Read Data from DB
+        $sql = "SELECT * FROM SB_Users WHERE phonenumber = $_POST[username] AND password = '$pass' ;";
+        $result = mysqli_query($conn, $sql);
+        echo "asd";
+        $resultCheck = mysqli_num_rows($result);
+        echo "<br>number of rows : ".$resultCheck."<br>";
+        if($resultCheck > 0){
+            while($row = mysqli_fetch_assoc($result)){
+                echo "user id is ".$row['user_id'];
+                $_SESSION['user_id'] = $row['user_id'];
+                echo "<br>session value is ".$_SESSION['user_id'];
+            if($_SESSION){
+                echo "<script type='text/javascript'>location.href = './../ProfilePage/profile.php';</script>";        
             }
-        ?>
-</select>
-<br>
-<input type="submit" name="submit" value="Sign In">
-        </form>
-        <?php
-        if(isset($_POST['submit'])){
-            if(!empty($_POST['user'])) {
-                $selected = $_POST['user'];
-                $_SESSION['user_id'] = $selected;
-                echo 'You have chosen:' . $selected;
-                echo "Session value : ".$_SESSION['user_id'];
-                header("Location: ./../ProfilePage/profile.php");
-                exit();
-            } else {
-                echo 'Please select the value.';
-            }
-            }
-        ?>
-        <script src="./signin.js"></script>
-    </body> 
-</html>
+        
+            };
+         
+             exit();
+        }else{
+            echo "No results to display";
+        }
+    ?>

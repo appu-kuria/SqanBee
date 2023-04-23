@@ -37,13 +37,12 @@ $brand_id = $_POST['brand_id'];
 $outletName = $_POST['outletName'];
 $buildingNo = $_POST['buildingNo'];
 $place = $_POST['place'];
-$locality = $_POST['locality'];
 $city = $_POST['city'];
 $state = $_POST['state'];
 $phone = $_POST['phone'];
 
-$sql_insert = "INSERT INTO SB_Outlets (brand_id, outlet_name, outlet_location, is_active) 
-VALUES ('$brand_id','$outletName','$place','1');";
+$sql_insert = "INSERT INTO SB_Outlets (brand_id, outlet_name, outlet_location, is_active, building_no, city, state, phone) 
+VALUES ('$brand_id','$outletName','$place','1', '$buildingNo', '$city', '$state', '$phone');";
  mysqli_query($conn,$sql_insert);
  if(mysqli_error($conn)){
     echo "Problem occured in db push";

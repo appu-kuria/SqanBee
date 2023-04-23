@@ -54,32 +54,28 @@
 
                 <div class="input_pox">
                     <span class="datails">Outlet Name</span>
-                    <input type="text" placeholder="Eg:Kakkanad" name="outletName" id="outletName">
+                    <input type="text" placeholder="Eg: My Outlet" name="outletName" id="outletName">
                 </div>
                 <div class="input_pox">
                     <span class="datails">Building No</span>
-                    <input type="text" placeholder="Eg:Kakkanad" name="buildingNo" id="buildingNo">
+                    <input type="text" placeholder="Eg: 1234" name="buildingNo" id="buildingNo">
                 </div>
                 <div class="input_pox">
                     <span class="datails">Place</span>
                     <input type="text" placeholder="Eg:Kakkanad" name="place" id="place">
-                </div>  
-                <div class="input_pox">
-                    <span class="datails">Locality</span>
-                    <input type="text" placeholder="Eg:Kakkanad" name="locality" id="locality">
-                </div>
+                </div> 
                 <div class="input_pox">
                     <span class="datails">City</span>
-                    <input type="text" placeholder="Eg:Kakkanad" name="city" id="city">
+                    <input type="text" placeholder="Eg:Kochi" name="city" id="city">
                 </div>
                 <div class="input_pox">
                     <span class="datails">State</span>
-                    <input type="text" placeholder="Eg:Kakkanad" name="state" id="state">
+                    <input type="text" placeholder="Eg:Kerala" name="state" id="state">
                 </div>
 
                 <div class="input_pox">
                     <span class="datails">Phone</span>
-                    <input type="text" placeholder="Eg:Kakkanad" name="phone" id="phone">
+                    <input type="text" placeholder="Eg:9999999999" name="phone" id="phone">
                 </div>
                 <!-- <div class="gender_details">
                 <input type="radio" name="gender" id="dot-1">

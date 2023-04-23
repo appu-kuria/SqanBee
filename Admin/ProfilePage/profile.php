@@ -109,11 +109,13 @@ if ($resultCheck > 0) {
                             <span>Add a Menu</span>
                         </li>
                     </a>
-                    <li class="side-nav__item">
-                        <?php echo drawSVG("editOutletIcon"); ?>
+                    <a href="./../Menu/Edit/menu.php">
+                        <li class="side-nav__item">
+                            <?php echo drawSVG("editOutletIcon"); ?>
 
-                        <span>Edit a Menu</span>
-                    </li>
+                            <span>Edit a Menu</span>
+                        </li>
+                    </a>
                     <li class="side-nav__item">
 
                         <?php echo drawSVG("deleteOutletIcon"); ?>

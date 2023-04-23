@@ -1,0 +1,558 @@
+img {
+    width: auto;
+    max-width: 100%;
+}
+
+.display_flex {
+    display: flex;
+}
+
+.flex_align_center {
+    align-items: center;
+}
+
+.justify_center {
+    justify-content: center;
+}
+
+.space_between {
+    justify-content: space-between;
+}
+
+.justify_end {
+    justify-content: end;
+}
+
+.margin_right_16 {
+    margin-right: 16px;
+}
+
+.width_70 {
+    width: 70%;
+}
+
+.width_30 {
+    width: 30%;
+}
+
+.render_view {
+    padding: 200px 60px 120px;
+    height: 100%;
+    background: #FFFFFF !important;
+}
+
+.outlet_Information {
+    text-align: center;
+    margin-bottom: 140px;
+}
+
+.outlet_image {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    margin: 0px auto 12px;
+}
+
+.outlet_name h2 {
+    text-align: center;
+    font-weight: 600;
+    font-family: "Quicksand";
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+    margin-bottom: 8px;
+}
+
+.outlet_name p {
+    font-weight: 600;
+    font-family: "Quicksand";
+    text-align: center;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0px;
+    color: #888888;
+    opacity: 1;
+}
+
+.viewButton button {
+    background: #0DB04B;
+    border-radius: 24px;
+    border: 1px solid #0DB04B;
+    text-align: center;
+    font-weight: 600;
+    font-family: "Quicksand";
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    padding: 11px;
+    width: 100%;
+    margin: 0px auto 16px;
+    max-width: 480px;
+}
+
+.payButton button {
+    padding: 11px;
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+    font-family: "Quicksand";
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0px;
+    color: #0DB04B;
+    background: #FFFFFF;
+    border: 2px solid #0DB04B;
+    border-radius: 24px;
+    max-width: 480px;
+}
+
+.categoryListView {
+    background: #F6F6F6;
+    height: auto;
+}
+
+.header_section {
+    padding: 16px 16px 12px 16px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 4px #00000014;
+}
+
+.category_logo {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.category_content {
+    width: calc(100% - 46px);
+}
+
+.category_content h1 {
+    font-weight: 600;
+    font-family: "Quicksand";
+    text-align: left;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0px;
+    color: #000000;
+    margin: 0px 0px 3px 0px;
+}
+
+.category_content h2 {
+    font-weight: 600;
+    font-family: "Quicksand";
+    text-align: left;
+    font-size: 10px;
+    line-height: 13px;
+    letter-spacing: 0px;
+    color: #888888;
+    margin: 0px;
+}
+
+.currency_label {
+    background: #EEEEEE;
+    border-radius: 12px;
+    min-width: 48px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.translate_icon {}
+
+.category_item {
+    padding: 16px 16px 100px 16px;
+    position: relative;
+    z-index: 9;
+}
+
+.header_section.overlay::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .24);
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    z-index: 1;
+}
+
+.foodMenu {
+    font-family: "Quicksand";
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0px;
+    color: #888888;
+    border-bottom: 1px solid #DDDDDD;
+    margin-bottom: 16px;
+    padding-bottom: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.foodMenu img {
+    margin: 0px 6px;
+}
+
+.mat_accordion {
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px #00000014;
+    border-radius: 12px !important;
+    max-width: 480px;
+    margin: 0 auto 16px;
+}
+
+.mat_accordion .mat-expansion-panel-header {
+    padding: 12px 16px !important;
+    height: auto !important;
+}
+
+.mat_accordion .mat-expansion-panel-header-title {
+    display: block !important;
+}
+
+.mat_accordion .category_name {
+    font-family: "Quicksand";
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0px;
+    color: #000000;
+    margin-bottom: 1px;
+    font-weight: bolder;
+}
+
+.mat_accordion .category_count {
+    font-weight: 600;
+    font-family: "Quicksand";
+    text-align: left;
+    font-size: 10px;
+    line-height: 13px;
+    letter-spacing: 0px;
+    color: #888888;
+}
+
+::ng-deep .mat_accordion .mat-expansion-panel-content .mat-expansion-panel-body {
+    padding: 4px 16px 16px 16px !important;
+}
+
+.accordion_content {
+    display: flex;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #F6F6F6;
+    margin-bottom: 12px;
+}
+
+.accordion_content:last-child {
+    border-bottom: unset;
+}
+
+.accordion_content .item_icon {
+    margin-right: 12px;
+    width: 56px;
+}
+
+.accordion_content .item_details {
+    width: calc(100% - 152px);
+}
+
+.accordion_content .item_details .item_specific_red {
+    height: 16px;
+    border-radius: 8px;
+    padding: 0px 8px;
+    background: #FFDBF2;
+    font-weight: 600;
+    font-family: "Quicksand";
+    font-size: 10px;
+    line-height: 13px;
+    letter-spacing: 0px;
+    display: inline-block;
+    margin-bottom: 2px;
+    color: #D62E98;
+}
+
+.accordion_content .item_details .item_specific_green {
+    height: 16px;
+    border-radius: 8px;
+    padding: 0px 8px;
+    background: #D7F5CE;
+    font-weight: 600;
+    font-family: "Quicksand";
+    font-size: 10px;
+    line-height: 13px;
+    letter-spacing: 0px;
+    display: inline-block;
+    margin-bottom: 2px;
+    color: #3CB400;
+}
+
+.accordion_content .item_details .item_name {
+    font-weight: 600;
+    font-family: "Quicksand";
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0px;
+    color: #000000;
+    margin-bottom: 2px;
+}
+
+.accordion_content .item_details .item_description {
+    letter-spacing: 0px;
+    color: #888888;
+    font-weight: 600;
+    font-family: "Quicksand";
+    font-size: 10px;
+    line-height: 13px;
+    margin-bottom: 2px;    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    white-space: nowrap;
+}
+
+.accordion_content .item_details .item_description_expanded {
+    letter-spacing: 0px;
+    color: #888888;
+    font-weight: 600;
+    font-family: "Quicksand";
+    font-size: 10px;
+    line-height: 13px;
+    margin-bottom: 2px;    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    white-space: normal;
+}
+
+.accordion_content .item_details .item_price {
+    font-weight: 600;
+    font-family: "Quicksand";
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0px;
+    color: #444444;
+}
+
+.accordion_content .item_add {
+    width: 100px;
+    justify-content: end;
+    display: flex;
+}
+
+.accordion_content .item_add .add_btn button {
+    text-align: center;
+    font-weight: bold;
+    font-family: "Quicksand";
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0px;
+    color: #F0003C;
+    background: #FFFFFF;
+    border: 1px solid #F0003C;
+    border-radius: 16px;
+    padding: 7px 18px;
+    height: 32px;
+    transition: 1s;
+    animation: ease-in-out;
+}
+
+.accordion_content .item_add .input_count {
+    width: 30px;
+    border: unset;
+    text-align: center;
+}
+
+.accordion_content .item_add .input_count:focus-visible {
+    outline: unset;
+}
+
+.plus_minus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-family: "Quicksand";
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0px;
+    color: #0DB04B;
+    width: 100px;
+    height: 32px;
+    background: #FFFFFF;
+    border: 1px solid #0DB04B;
+    border-radius: 16px;
+    transition: 1s;
+    animation: ease-in-out;
+}
+
+.order_list .added_name {
+    text-align: left;
+    font-weight: 600;
+    font-family: "Quicksand";
+    font-size: 10px;
+    line-height: 13px;
+    letter-spacing: 0px;
+    color: #888888;
+    margin-bottom: 1px;
+}
+
+.order_list .added_item {
+    font-weight: 600;
+    font-family: "Quicksand";
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0px;
+    color: #0DB04B;
+}
+
+.order_list {
+    background: #FFFFFF;
+    box-shadow: 0px -2px 8px #00000029;
+    border-radius: 24px 24px 0px 0px;
+    padding: 16px;
+    position: fixed;
+    width: 100%;
+    height: auto;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    transition: 1s;
+    animation: ease-in;
+    z-index: 9;
+}
+
+.order_list.height_change {
+    height: 95%;
+}
+
+.viewButton button.list_btn {
+    margin-bottom: 0px;
+    padding: 11px 29px;
+}
+
+.ordr_btns button {
+    width: 120px;
+    margin: 0px 6px;
+}
+
+.bottom_button {
+    padding-top: 16px;
+    border-top: 1px solid #DDDDDD;
+    position: fixed;
+    bottom: 16px;
+    width: calc(100% - 32px);
+    left: 16px;
+    right: 16px;
+}
+
+.item_added_list {
+    background: #F6F6F6;
+    border-radius: 12px;
+    padding: 16px 16px 50px 16px;
+    margin-bottom: 16px;
+    height: auto;
+    max-height: 60%;
+    overflow: auto;
+
+}
+
+.display_list_item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px dashed #DDDDDD;
+    padding: 12px 0px;
+    font-weight: 600;
+    font-family: "Quicksand";
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0px;
+    color: #000000;
+}
+
+.display_list_item:first-child {
+    padding-top: 4px;
+}
+
+.top_header_list {
+    border-bottom: 1px solid #DDDDDD;
+    padding-bottom: 27px;
+    margin-bottom: 16px;
+    padding-top: 10px;
+}
+
+.top_header_order_list {
+    font-family: "Quicksand";
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0px;
+    color: #444444;
+    margin-left: 12px;
+}
+
+.estimate_time {
+    font-family: "Quicksand";
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0px;
+    color: #888888;
+}
+
+.powerdby {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #dddddd;
+    padding-top: 16px;
+    position: fixed;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    font-weight: 400;
+    color: #888888;
+    font-size: 8px;
+    line-height: 10px;
+    font-family: "Quicksand";
+    z-index: 1;
+}
+
+.powerdby span {
+    font-weight: 600;
+    padding-left: 3px;
+}
+
+.top_header_list img {
+    cursor: pointer;
+}
+
+.more_text{
+    float: right;
+    margin-right: 8px;
+    font-size:x-small ;
+}
+
+
+.category_name {
+    transition: 0.4s;
+  }
+  
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .active, .accordion:hover {
+    background-color: #ccc;
+  }
+  
+  /* Style the accordion panel. Note: hidden by default */
+  .accordion_content {
+    display: none;
+    overflow: hidden;
+  }
+
+@media(max-width: 767px) {}

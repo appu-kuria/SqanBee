@@ -47,13 +47,11 @@ function onOutletSelect() {
             success: function (result) {
                 result = JSON.parse(result);
                 document.getElementById("outletName").value = result.outlet_name;
-                // document.getElementById("buildingNo").value = result;
+                document.getElementById("buildingNo").value = result.building_no;
                 document.getElementById("place").value = result.outlet_location;
-                // document.getElementById("locality").value = result;
-                // document.getElementById("city").value = result;
-                // document.getElementById("state").value = result;
-                // document.getElementById("city").value = result;
-                // document.getElementById("phone").value = result;
+                document.getElementById("city").value = result.city;
+                document.getElementById("state").value = result.state;
+                document.getElementById("phone").value = result.phone;
 
             }
         });

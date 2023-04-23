@@ -61,10 +61,6 @@ include './../../../Constants/config.php';
                     <input type="text" placeholder="Eg:Kakkanad" name="place" id="place">
                 </div>  
                 <div class="input_pox">
-                    <span class="datails">Locality</span>
-                    <input type="text" placeholder="Eg:Kakkanad" name="locality" id="locality">
-                </div>
-                <div class="input_pox">
                     <span class="datails">City</span>
                     <input type="text" placeholder="Eg:Kakkanad" name="city" id="city">
                 </div>

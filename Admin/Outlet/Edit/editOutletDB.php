@@ -1,7 +1,7 @@
 <?php 
     session_start();
 
-include './../../Constants/config.php';
+include './../../../Constants/config.php';
 
     // $serverName = "localhost";
     // $userName = "root";
@@ -19,20 +19,26 @@ echo"about to start connect database operation ";
 <?php
 
 //Collecting the variables
-$brand_id = $_POST['brand_id'];
+// $brand_id = $_POST['brand_id'];
 $outletName = $_POST['outletName'];
 $buildingNo = $_POST['buildingNo'];
 $place = $_POST['place'];
-$locality = $_POST['locality'];
 $city = $_POST['city'];
 $state = $_POST['state'];
 $phone = $_POST['phone'];
 $outlet_id = $_POST['outlet_id'];
 
-$sql_update = "UPDATE SB_Outlets set outlet_name ='".$outletName."', outlet_location='".$place."' where outlet_id=".$outlet_id; 
+
+$sql_update = "UPDATE SB_Outlets set outlet_name ='".$outletName."', outlet_location='".$place.
+"', building_no= '".$buildingNo."', city='". $city."', state ='". $state ."', phone = '".$phone."' where outlet_id=".$outlet_id; 
+
+echo $sql_update;
  mysqli_query($conn,$sql_update);
  if(mysqli_error($conn)){
     echo "Problem occured in db push";
+ }
+ else{
+    echo "Success";
  }
 
 ?>

@@ -70,6 +70,16 @@
                 <form action="./signin.php" method="POST">
                   <p>Please login to your account</p>
 
+                <!-- Checking for errors -->
+                <?php
+                    if(isset($_GET['error'])){
+                        ?>
+                        <p class="error"><?php echo $_GET['error']; ?></p>
+                        <?php
+                    }
+                ?>
+
+
                   <div class="form-outline mb-4">
                     <input type="text" name="username" id="form2Example11" class="form-control"
                       placeholder="Phone number" />

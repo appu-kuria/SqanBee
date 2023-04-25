@@ -27,6 +27,7 @@ function addItem() {
     if (isValid) {
         var item = {};
         item.category_id = categories[editCatIndex].category_id;
+        item.category_name = categories[editCatIndex].category_name;
         item.item_name = document.getElementById("itemName").value;
         item.item_description = document.getElementById("description").value;
         item.item_price = document.getElementById("price").value;
@@ -177,7 +178,7 @@ function onOutletSelect() {
                 var index = result.indexOf('###');
 
                 categories = result.substring(0,index);
-                categories= categories.replace('}{','},{');
+                categories= categories.replace(/}{/g,'},{');
                 categories ='['+categories + ']';
                 console.log(categories);
 

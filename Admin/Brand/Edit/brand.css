@@ -116,6 +116,30 @@
   form .button input :hover{
       background: linear-gradient(-123deg, #71b8e7,#9b59b6);
   }
+
+  .container1 {
+    /* width: 150px;
+    height: 150px; */
+    /* position: relative; */
+    /* margin: 30px; */
+  }
+  
+  .box1 {
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.7;
+    background: #0057e3;
+  }
+  
+  .overlay1 {
+    z-index: 9;
+    margin: 30px;
+    background: #009938;
+  }
+
   @media (max-width: 584px){
       .container{
           max-width: 100%;

@@ -1,9 +1,9 @@
 <html>
     <head>
-        <title>Sign In</title>
+        <title>Password Reset</title>
     </head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="./signin.css">
+    <link rel="stylesheet" href="./forgotPassword.css">
     <body>
     <?php 
     // include './../../Constants/config.php';
@@ -68,7 +68,7 @@
                 </div>
 
                 <form action="./signin.php" method="POST">
-                  <p>Please login to your account</p>
+                  <p>Reset your Password here</p>
 
                 <!-- Checking for errors -->
                 <?php
@@ -86,15 +86,9 @@
                     <!-- <label class="form-label" for="form2Example11">Username</label> -->
                   </div>
 
-                  <div class="form-outline mb-4">
-                    <input type="password" id="form2Example22" name="password" placeholder="Password" class="form-control" />
-                    <!-- <label class="form-label" for="form2Example22">Password</label> -->
-                  </div>
-
                   <div class="text-center pt-1 mb-5 pb-1">
-                    <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Log
-                      in</button>
-                    <a class="text-muted" href="./../ForgotPassword/forgotPasswordPage.php">Forgot password?</a>
+                    <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Generate OTP</button>
+                    <a class="text-muted" href="./../SignIn/signinPage.php">Login</a>
                   </div>
 
                   <div class="d-flex align-items-center justify-content-center pb-4">
@@ -121,6 +115,6 @@
   </div>
 </section>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-        <script src="./signin.js"></script>
+        <script src="./forgotPassword.js"></script>
     </body> 
 </html>

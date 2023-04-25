@@ -12,7 +12,7 @@
         ?>
         <h4>Tasetyland Eatery</h4>
         <br>
-        <form action="./../MenuPage/menuPage.php?id=2" method="POST">
+        <form action="./../MenuPage/menusample.php?id=2" method="POST">
         <button type="submit" class="btn btn-success">View Menu</button>
         </form>
 

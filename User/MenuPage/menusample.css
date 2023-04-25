@@ -480,3 +480,69 @@
 .menu-image{
     padding:20;
 }
+
+.item_add {
+    width: 100px;
+    justify-content: end;
+    display: flex;
+}
+
+ .item_add .add_btn button{
+    text-align: center;
+    font-weight: bold;
+    font-family: "Quicksand";
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0px;
+    color: #F0003C;
+    background: #FFFFFF;
+    border: 1px solid #F0003C;
+    border-radius: 16px;
+    padding: 7px 18px;
+    height: 32px;
+    transition: 1s;
+    animation: ease-in-out;
+}
+
+
+.plus_minus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-family: "Quicksand";
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0px;
+    color: #0DB04B;
+    width: 100px;
+    height: 32px;
+    background: #FFFFFF;
+    border: 1px solid #0DB04B;
+    border-radius: 16px;
+    transition: 1s;
+    animation: ease-in-out;
+}
+
+.item_add .input_count {
+    width: 30px;
+    border: unset;
+    text-align: center;
+}
+
+.item_add .input_count:focus-visible {
+    outline: unset;
+}
+
+.modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid black;
+    box-shadow: 10px 10px 5px #888888;
+}

@@ -34,12 +34,12 @@ function addItemToCart(itemId, itemName) {
         add_btn.style.display ="none";
         count.value = 1;
         var plusMinus_ = document.getElementById('plusMinus_' + itemId);
-        plusMinus_.style.display ="block";
+        plusMinus_.style.display ="flex";
 
-        var orderCount = document.getElementById('orderCount');
-        orderCount.style.display = "block";
-        var added_item = document.getElementById('added_item');
-        added_item.innerText = getTotalCount() + ' items';
+        // var orderCount = document.getElementById('orderCount');
+        // orderCount.style.display = "block";
+        // var added_item = document.getElementById('added_item');
+        // added_item.innerText = getTotalCount() + ' items';
 
     }
     else {
@@ -47,9 +47,14 @@ function addItemToCart(itemId, itemName) {
         var count = document.getElementById('count_' + itemId);
         count.value = addedItems[index].count;
 
+        var add_btn = document.getElementById('add_btn_' + itemId);
+        add_btn.style.display ="none";
+        var plusMinus_ = document.getElementById('plusMinus_' + itemId);
+        plusMinus_.style.display ="flex";
+
         
-        var added_item = document.getElementById('added_item');
-        added_item.innerText = getTotalCount() + ' items';
+        // var added_item = document.getElementById('added_item');
+        // added_item.innerText = getTotalCount() + ' items';
     }
 
 }
@@ -82,15 +87,15 @@ function getTotalCount() {
 }
 
 function viewOrderList(){
-    var orderCount = document.getElementById('orderCount');
-    orderCount.style.display ="none";
+    // var orderCount = document.getElementById('orderCount');
+    // orderCount.style.display ="none";
     
-    var orderDetail = document.getElementById('orderDetail');
-    orderDetail.style.display ="block";
+    // var orderDetail = document.getElementById('orderDetail');
+    // orderDetail.style.display ="block";
 
 
     var item_added_list = document.getElementById('item_added_list');
-
+    item_added_list.innerHTML ='';
     addedItems.forEach(function (item, index) {
         var display_list_item = document.createElement('div');
         display_list_item.setAttribute('class', 'display_list_item');

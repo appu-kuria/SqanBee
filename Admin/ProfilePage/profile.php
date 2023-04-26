@@ -53,6 +53,15 @@ if ($resultCheck > 0) {
                     </li>
                 </ul>
 
+                <ul class="side-nav">
+                    <span class="side-nav__header">QR Related</span>
+                    <a href="./../QR/mapQR.php">
+                        <li class="side-nav__item">
+                            <?php echo drawSVG("addBrandIcon"); ?>
+                            <span>Add a QR</span>
+                        </li>
+                    </a>
+                </ul>
 
 
                 <ul class="side-nav">

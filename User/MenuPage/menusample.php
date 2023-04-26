@@ -136,7 +136,10 @@ if ($resultCheck > 0) {
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                     <?php
                     $categoryName = "";
-                    $sql = "SELECT * FROM `sb_category` C INNER JOIN sb_menu M ON C.category_id = M.category_id  WHERE outlet_id =8";
+                    $parts = parse_url($_SERVER['REQUEST_URI']);
+                    parse_str($parts['query'], $query);
+                    $outlet_id = $query['outlet_id'];
+                    $sql = "SELECT * FROM `sb_category` C INNER JOIN sb_menu M ON C.category_id = M.category_id  WHERE outlet_id =".$outlet_id;
                     $resultCatMen = $conn->query($sql) or die($conn->error);
                     $resultCheck = mysqli_num_rows($resultCatMen);
                     if ($resultCheck > 0) {
@@ -235,7 +238,7 @@ if ($resultCheck > 0) {
                         <h4 class="modal-title">Your Cart</h4>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
-                    
+
                     <h5 class="d-flex justify-content-between border-bottom pb-2">
                         <div id="item_added_list">
                         </div>

@@ -56,7 +56,7 @@ if (!empty($outlet_id)) {
 $qr = !empty($_POST['qr']) ? $_POST['qr'] : '';
 if (!empty($qr)) {
     $outlet_id = $_POST['outlet_id_to_map'];
-    $sql = "INSERT INTO qrcodes (outlet_id, qr) values (" . $outlet_id . ", '" . $qr . "')";
+    $sql = "INSERT INTO SB_QRCodes (outlet_id, qr) values (" . $outlet_id . ", '" . $qr . "')";
     $result = mysqli_query($conn, $sql);
     echo $result;
 }

@@ -19,7 +19,7 @@ parse_str($parts['query'], $query);
 $qr= $query['qr'];
 $_SESSION["scanned_qr"] = $qr;
 // echo $qr;
-$sql = "SELECT * FROM qrcodes WHERE qr ='".$qr."'";
+$sql = "SELECT * FROM SB_QRCodes WHERE qr ='".$qr."'";
 $result = mysqli_query($conn, $sql);
 $resultCheck = mysqli_num_rows($result);
 if($resultCheck > 0){

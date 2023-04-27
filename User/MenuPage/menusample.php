@@ -168,7 +168,7 @@ if ($resultCheck > 0) {
                                                                 <?php echo $row['item_name'] ?>
                                                             </span>
                                                             <span class="text-primary">
-                                                                <?php echo $row['item_price'] ?>
+                                                                <?php  echo  "₹".$row['item_price'] ?>
                                                             </span>
                                                         </h5>
                                                         <div>
@@ -277,7 +277,7 @@ if ($resultCheck > 0) {
 
 
         <!-- Back to Top -->
-        <i class="btn btn-lg btn-primary btn-lg-square back-to-top bi bi-cart"></i>
+        <i class="btn btn-lg btn-primary btn-lg-square back-to-top bi bi-cart" onclick=viewOrderList()></i>
     </div>
 
     <!-- JavaScript Libraries -->

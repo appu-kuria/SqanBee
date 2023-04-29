@@ -13,6 +13,7 @@
 session_start();
 include './../../../Constants/config.php';
 ?>
+
 <body onload="onLoad()">
     <div class="container">
         <div class="title">Add Outlet</div>
@@ -24,23 +25,31 @@ include './../../../Constants/config.php';
                         <select id="brand_id" onchange="onBrandSelect()">
                             <option value="" selected disabled>Select a brand</option>
                             <?php
+
+                            try {
+                                $conn = new PDO("mysql:host=$serverName;dbname=$dbName", $userName, $password);
+                                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                                 $sql = "SELECT * FROM SB_Brands WHERE user_id = $_SESSION[user_id];";
-                                $result = mysqli_query($conn, $sql);
-                                $resultCheck = mysqli_num_rows($result);
-                                if($resultCheck > 0){
-                                    while($row = mysqli_fetch_assoc($result)){
-                                        echo "<option value=".$row['brand_id'].">".$row['brand_name']."</option>";
-                                    };
+                                $result = $conn->query($sql);
+                                $resultCheck = $result->rowCount();
+                                if ($resultCheck > 0) {
+                                    while ($row = $result->fetch()) {
+                                        echo "<option value='" . $row['brand_id'] . "'>" . $row['brand_name'] . "</option>";
+                                    }
                                 }
-                                
+                                $conn = null;
+                            } catch (PDOException $e) {
+                                echo "Error is : " . $sql . "<br>" . $e->getMessage();
+                            }
+
+
                             ?>
-                            <option value="Select">Select</option>
                         </select>
                     </span>
                 </div>
                 <div class="input_pox">
                     <span class="datails">
-                        <select id="outlet_id" name ="outlet_id" onchange="onOutletSelect()">
+                        <select id="outlet_id" name="outlet_id" onchange="onOutletSelect()">
                             <option value="">Select Outlet</option>
                         </select>
                     </span>
@@ -59,7 +68,7 @@ include './../../../Constants/config.php';
                 <div class="input_pox">
                     <span class="datails">Place</span>
                     <input type="text" placeholder="Eg:Kakkanad" name="place" id="place">
-                </div>  
+                </div>
                 <div class="input_pox">
                     <span class="datails">City</span>
                     <input type="text" placeholder="Eg:Kakkanad" name="city" id="city">
@@ -73,26 +82,6 @@ include './../../../Constants/config.php';
                     <span class="datails">Phone</span>
                     <input type="text" placeholder="Eg:Kakkanad" name="phone" id="phone">
                 </div>
-                <!-- <div class="gender_details">
-                <input type="radio" name="gender" id="dot-1">
-                <input type="radio" name="gender" id="dot-2">
-                <input type="radio" name="gender" id="dot-3">
-                <span class="gender_title"> Gender</span>
-                <div class="category">
-                    <label for="dot-1">
-                        <span class="dot one"></span>
-                        <span class="gender">Mail</span>
-                    </label>
-                    <label for="dot-2">
-                        <span class="dot two"></span>
-                        <span class="gender">Femail</span>
-                    </label>
-                    <label for="dot-3">
-                        <span class="dot three"></span>
-                        <span class="gender">Perer not to say</span>
-                    </label>
-                </div>
-            </div> -->
                 <div class="button">
                     <input type="submit" value="Save Changes" id="submit">
                 </div>

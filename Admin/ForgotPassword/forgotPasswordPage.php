@@ -5,53 +5,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="./forgotPassword.css">
     <body>
-    <?php 
-    // include './../../Constants/config.php';
-
-    // $conn = new mysqli($serverName, $userName, $password, $dbName) or die(mysqli_error($conn));
-    // if ($conn->connect_errno) {
-    //     echo("Connect failed: %s\n". $conn->connect_error);
-    //     exit();
-    // }else{
-    //     echo"<br>No error in connection with db";
-    // }
-?>
-
-        <!-- <form action="" method="POST">
-            <select name='user'>
-                
-        <?php
-            //Read Data from DB
-            // $sql = "SELECT * FROM SB_Users WHERE is_active;";
-            // $result = mysqli_query($conn, $sql);
-            // $resultCheck = mysqli_num_rows($result);
-            // if($resultCheck > 0){
-            //     echo "There are some result<br>";
-            //     while($row = mysqli_fetch_assoc($result)){
-            //         echo "<option value=".$row['user_id'].">".$row['firstName']."</option>";
-            //     };
-            // }else{
-            //     echo "No results to display";
-            // }
-        ?>
 </select>
 <br>
 <input type="submit" name="submit" value="Sign In">
-        </form> -->
-        <?php
-        // if(isset($_POST['submit'])){
-        //     if(!empty($_POST['user'])) {
-        //         $selected = $_POST['user'];
-        //         $_SESSION['user_id'] = $selected;
-        //         echo 'You have chosen:' . $selected;
-        //         echo "Session value : ".$_SESSION['user_id'];
-        //         header("Location: ./../ProfilePage/profile.php");
-        //         exit();
-        //     } else {
-        //         echo 'Please select the value.';
-        //     }
-        //     }
-        ?>
+        </form> 
         <section class="h-100 gradient-form" style="background-color: #eee;">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -73,9 +30,7 @@
                 <!-- Checking for errors -->
                 <?php
                     if(isset($_GET['error'])){
-                        ?>
-                        <p class="error"><?php echo $_GET['error']; ?></p>
-                        <?php
+                        echo "<p class=\"error\"> $_GET[error];</p>";
                     }
                 ?>
 

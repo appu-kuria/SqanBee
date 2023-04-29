@@ -38,7 +38,7 @@ $query_parts = array();
 $i = 0;
 
 foreach ($categories as $value) {
-    $query_parts[$i] = "(" . $outlet_id . ", '" . $value->category_name . "', " . '1' . ")";
+    $query_parts[$i] = "(" . $outlet_id . ", '" . $value->category_name . "',  1  )";
     $sql = 'DELETE FROM sb_menu WHERE category_id ='.$value->category_id;
     echo  $sql;
     $RES = mysqli_query($conn, $sql);
@@ -46,6 +46,7 @@ foreach ($categories as $value) {
     $i++;
 }
 $query .= implode(',', $query_parts);
+echo $query;
 mysqli_query($conn, $query);
 if (mysqli_error($conn)) {
     echo "Problem occured in db push";

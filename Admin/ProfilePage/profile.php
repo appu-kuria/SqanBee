@@ -2,11 +2,15 @@
 session_start();
 include './../../Constants/config.php';
 //Read Data from DB
-$sql = "SELECT * FROM SB_Users WHERE user_id = $_SESSION[user_id];";
-$result = mysqli_query($conn, $sql);
-$resultCheck = mysqli_num_rows($result);
-if ($resultCheck > 0) {
-    while ($row = mysqli_fetch_assoc($result)) {
+try {
+    $conn = new PDO("mysql:host=$serverName;dbname=$dbName", $userName, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = "SELECT * FROM SB_Users WHERE user_id = $_SESSION[user_id];";
+
+    // use exec() because no results are returned
+    $result = $conn->query($sql);
+    while ($row = $result->fetch()) {
         $user = array(
             'phonenumber' => $row['phonenumber'],
             'user_id' => $row['user_id'],
@@ -16,8 +20,9 @@ if ($resultCheck > 0) {
         );
     }
     ;
-} else {
-    echo "No results to display";
+    $conn = null;
+} catch (PDOException $e) {
+    echo "Error is : " . $sql . "<br>" . $e->getMessage();
 }
 ?>
 
@@ -196,7 +201,7 @@ if ($resultCheck > 0) {
                                 fill="black" />
                         </svg>
                         <span class="user-name">
-                            <?php echo $_POST['firstName'] . " " . $_POST['lastName'] ?>
+                            <?php echo $_SESSION['firstName'] . " " . $_SESSION['lastName'] ?>
                         </span>
                     </div>
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -262,24 +267,21 @@ if ($resultCheck > 0) {
                                 </th>
                             </tr>
                             <?php
-                            $conn = new mysqli($serverName, $userName, $password, $dbName) or die(mysqli_error($conn));
-                            if ($conn->connect_errno) {
-                                echo ("Connect failed: %s\n" . $conn->connect_error);
-                                exit();
-                            } else {
-                            }
-                            //Read Data from DB
-                            $sql = "SELECT * FROM SB_Brands WHERE user_id = $_SESSION[user_id];";
-                            $result = mysqli_query($conn, $sql);
-                            $resultCheck = mysqli_num_rows($result);
-                            if ($resultCheck > 0) {
-                                while ($row = mysqli_fetch_assoc($result)) {
-                                    // echo '<tr><td>'.$row['brand_name'].'</td></tr>';
+                            try {
+                                $conn = new PDO("mysql:host=$serverName;dbname=$dbName", $userName, $password);
+                                // set the PDO error mode to exception
+                                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                                $sql = "SELECT * FROM SB_Brands WHERE user_id = $_SESSION[user_id];";
+
+                                // use exec() because no results are returned
+                                $result = $conn->query($sql);
+                                while ($row = $result->fetch()) {
                                     echo "<tr><td></td><td>" . $row['brand_name'] . "</td></tr>";
                                 }
                                 ;
-                            } else {
-                                echo "No results to display";
+                                $conn = null;
+                            } catch (PDOException $e) {
+                                echo "Error is : " . $sql . "<br>" . $e->getMessage();
                             }
                             ?>
 

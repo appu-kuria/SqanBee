@@ -12,7 +12,7 @@ include './../../Constants/config.php';
     <title>Menu</title>
 </head>
 
-<body onload="onLoad()">
+<body>
     <div class="container">
         <div class="title">Add Menu</div>
         <form method="post" action="./menuDB.php" name="brandForm" onsubmit="return validate()">
@@ -23,14 +23,21 @@ include './../../Constants/config.php';
                         <select id="brand_id" onchange="onBrandSelect()">
                             <option value="" selected disabled>Select a brand</option>
                             <?php
-                            $sql = "SELECT * FROM SB_Brands WHERE user_id = $_SESSION[user_id];";
-                            $result = mysqli_query($conn, $sql);
-                            $resultCheck = mysqli_num_rows($result);
-                            if ($resultCheck > 0) {
-                                while ($row = mysqli_fetch_assoc($result)) {
+                            try {
+                                $conn = new PDO("mysql:host=$serverName;dbname=$dbName", $userName, $password);
+                                // set the PDO error mode to exception
+                                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                                $sql = "SELECT * FROM SB_Brands WHERE user_id = $_SESSION[user_id];";
+
+                                // use exec() because no results are returned
+                                $result = $conn->query($sql);
+                                while ($row = $result->fetch()) {
                                     echo "<option value=" . $row['brand_id'] . ">" . $row['brand_name'] . "</option>";
                                 }
                                 ;
+                                $conn = null;
+                            } catch (PDOException $e) {
+                                echo "Error is : " . $sql . "<br>" . $e->getMessage();
                             }
 
                             ?>
@@ -39,7 +46,7 @@ include './../../Constants/config.php';
                 </div>
                 <div class="input_pox">
                     <span class="datails">
-                        <select id="outlet_id" name ="outlet_id">
+                        <select id="outlet_id" name="outlet_id">
                             <option value="">Select Outlet</option>
                         </select>
                     </span>

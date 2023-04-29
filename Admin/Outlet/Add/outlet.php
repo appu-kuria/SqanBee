@@ -1,17 +1,17 @@
-<?php 
-    session_start();
-    include './../../../Constants/config.php';
-    // $serverName = "localhost";
-    // $userName = "root";
-    // $password = "";
-    // $dbName = "SQANBEE";
-    $conn = new mysqli($serverName, $userName, $password, $dbName) or die(mysqli_error($conn));
-    if ($conn->connect_errno) {
-        echo("Connect failed: %s\n". $conn->connect_error);
-        exit();
-    }else{
-        
-    }
+<?php
+session_start();
+include './../../../Constants/config.php';
+// $serverName = "localhost";
+// $userName = "root";
+// $password = "";
+// $dbName = "SQANBEE";
+$conn = new mysqli($serverName, $userName, $password, $dbName) or die(mysqli_error($conn));
+if ($conn->connect_errno) {
+    echo ("Connect failed: %s\n" . $conn->connect_error);
+    exit();
+} else {
+
+}
 ?>
 <html lang="en">
 
@@ -31,21 +31,31 @@
 
                 <div class="input_pox">
                     <span class="datails">Create outlet for
-                    <?php 
-                       $sql = "SELECT * FROM SB_Brands WHERE user_id = $_SESSION[user_id];";
-                       $result = mysqli_query($conn, $sql);
-                       $resultCheck = mysqli_num_rows($result);
-                       if($resultCheck > 0){
-                        echo "<select name=\"brand_id\">"; 
-                        echo "<option size =30 ></option>";
-                        while($row = mysqli_fetch_assoc($result)) 
-                        {        
-                        echo "<option value='".$row['brand_id']."'>".$row['brand_name']."</option>"; 
+                        <?php
+
+                        try {
+                            $conn = new PDO("mysql:host=$serverName;dbname=$dbName", $userName, $password);
+                            // set the PDO error mode to exception
+                            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                            $sql = "SELECT * FROM SB_Brands WHERE user_id = $_SESSION[user_id];";
+
+                            // use exec() because no results are returned
+                            $result = $conn->query($sql);
+                            $resultCheck = $result->rowCount();
+                            if ($resultCheck > 0) {
+                                echo "<select name=\"brand_id\">";
+                                echo "<option size =30 ></option>";
+                                while ($row = $result->fetch()) {
+                                    echo "<option value='" . $row['brand_id'] . "'>" . $row['brand_name'] . "</option>";
+                                }
+                                echo "</select>";
+                            } else {
+                                echo "No results to display";
+                            }
+                            $conn = null;
+                        } catch (PDOException $e) {
+                            echo "Error is : " . $sql . "<br>" . $e->getMessage();
                         }
-                        echo "</select>";
-                       }else{
-                           echo "No results to display";
-                       }
                         ?>
                     </span>
                 </div>
@@ -63,7 +73,7 @@
                 <div class="input_pox">
                     <span class="datails">Place</span>
                     <input type="text" placeholder="Eg:Kakkanad" name="place" id="place">
-                </div> 
+                </div>
                 <div class="input_pox">
                     <span class="datails">City</span>
                     <input type="text" placeholder="Eg:Kochi" name="city" id="city">

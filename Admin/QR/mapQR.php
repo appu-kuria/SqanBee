@@ -1,27 +1,11 @@
 <?php
 session_start();
-
 include './../../Constants/config.php';
-// echo "about to start connect database operation ";
-$conn = new mysqli($serverName, $userName, $password, $dbName) or die(mysqli_error($conn));
-if ($conn->connect_errno) {
-    echo ("Connect failed: %s\n" . $conn->connect_error);
-    exit();
-} else {
-    // echo "<br>No error in connection with db";
-}
-?>
-<?php
-// echo $_SERVER['REQUEST_URI'];
+
 $qr = $_SESSION["scanned_qr"];
-// echo $qr;
 ?>
 
 <html lang="en">
-<?php
-// session_start();
-include './../../Constants/config.php';
-?>
 
 <head>
     <meta charset="UTF-8">
@@ -41,14 +25,21 @@ include './../../Constants/config.php';
                         <select id="brand_id" onchange="onBrandSelect()">
                             <option value="" selected disabled>Select a brand</option>
                             <?php
-                            $sql = "SELECT * FROM SB_Brands WHERE user_id = $_SESSION[user_id];";
-                            $result = mysqli_query($conn, $sql);
-                            $resultCheck = mysqli_num_rows($result);
-                            if ($resultCheck > 0) {
-                                while ($row = mysqli_fetch_assoc($result)) {
+                            try {
+                                $conn = new PDO("mysql:host=$serverName;dbname=$dbName", $userName, $password);
+                                // set the PDO error mode to exception
+                                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                                $sql = "SELECT * FROM SB_Brands WHERE user_id = $_SESSION[user_id];";
+
+                                // use exec() because no results are returned
+                                $result = $conn->query($sql);
+                                while ($row = $result->fetch()) {
                                     echo "<option value=" . $row['brand_id'] . ">" . $row['brand_name'] . "</option>";
                                 }
                                 ;
+                                $conn = null;
+                            } catch (PDOException $e) {
+                                echo "Error is : " . $sql . "<br>" . $e->getMessage();
                             }
 
                             ?>
@@ -62,7 +53,7 @@ include './../../Constants/config.php';
                         </select>
                     </span>
                 </div>
-                
+
 
                 <div class="input_pox">
                     <span class="datails">Scanned QR ID</span>

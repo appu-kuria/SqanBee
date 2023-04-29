@@ -2,44 +2,56 @@
 include './../../Constants/config.php';
 $brandName = "";
 $outletName = "";
-// $sql = "SELECT * FROM `sb_category` C INNER JOIN sb_menu M ON C.category_id = M.category_id  WHERE outlet_id =8";
-//     $resultCatMen = $conn->query($sql) or die($conn->error);
-//             $resultCheck = mysqli_num_rows($resultCatMen);
-//             if ($resultCheck > 0) {
-//                 while ($row = mysqli_fetch_assoc($resultCatMen)) {
-//                     echo "Data from DB : ".$row['item_name'];
+$parts = parse_url($_SERVER['REQUEST_URI']);
+parse_str($parts['query'], $query);
+$outlet_id = $query['outlet_id'];
 
-//                 }
-//             } else {
-//                 echo "No results to display";
-//             }
+try {
+    $conn = new PDO("mysql:host=$serverName;dbname=$dbName", $userName, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = "SELECT * FROM `sb_category` C INNER JOIN sb_menu M ON C.category_id = M.category_id  WHERE outlet_id =" . $outlet_id;
 
-//getting brand and outlet name
-$sql = "SELECT * FROM `sb_category` C INNER JOIN sb_outlets O ON C.outlet_id = O.outlet_id  WHERE O.outlet_id =8";
-$result = $conn->query($sql) or die($conn->error);
-$resultCheck = mysqli_num_rows($result);
-if ($resultCheck > 0) {
-    while ($row = mysqli_fetch_assoc($result)) {
-        $outletName = $row['outlet_name'];
-
+    // use exec() because no results are returned
+    $result = $conn->query($sql);
+    $resultCheck = $result->rowCount();
+    if ($resultCheck > 0) {
+        while ($row = $result->fetch()) {
+            
+        }
+    } else {
+        // exit();
     }
-} else {
-    echo "No results to display";
+
+    ;
+    $conn = null;
+} catch (PDOException $e) {
+    echo "Error is : " . $sql . "<br>" . $e->getMessage();
 }
 
-$sql = "SELECT * FROM `sb_outlets` O INNER JOIN sb_brands B ON O.brand_id = B.brand_id  WHERE O.outlet_id =8";
-$result = $conn->query($sql) or die($conn->error);
-$resultCheck = mysqli_num_rows($result);
-if ($resultCheck > 0) {
-    while ($row = mysqli_fetch_assoc($result)) {
-        $brandName = $row['brand_name'];
+try {
+    $conn = new PDO("mysql:host=$serverName;dbname=$dbName", $userName, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = "SELECT * FROM `sb_outlets` O INNER JOIN sb_brands B ON O.brand_id = B.brand_id  WHERE O.outlet_id =" . $outlet_id;
 
+    // use exec() because no results are returned
+    $result = $conn->query($sql);
+    $resultCheck = $result->rowCount();
+    if ($resultCheck > 0) {
+        while ($row = $result->fetch()) {
+            $brandName = $row['brand_name'];$outletName = $row['outlet_name'];
+        }
+    } else {
+        header("Location: ./signinPage.php?error=Invalid username or passwords");
+        // exit();
     }
-} else {
-    echo "No results to display";
+
+    ;
+    $conn = null;
+} catch (PDOException $e) {
+    echo "Error is : " . $sql . "<br>" . $e->getMessage();
 }
-
-
 ?>
 
 
@@ -139,44 +151,53 @@ if ($resultCheck > 0) {
                     $parts = parse_url($_SERVER['REQUEST_URI']);
                     parse_str($parts['query'], $query);
                     $outlet_id = $query['outlet_id'];
-                    $sql = "SELECT * FROM `sb_category` C INNER JOIN sb_menu M ON C.category_id = M.category_id  WHERE outlet_id =".$outlet_id;
-                    $resultCatMen = $conn->query($sql) or die($conn->error);
-                    $resultCheck = mysqli_num_rows($resultCatMen);
-                    if ($resultCheck > 0) {
-                        while ($row = mysqli_fetch_assoc($resultCatMen)) {
-                            if ($categoryName != $row['category_name']) {
-                                ?>
-                                <h5 class="section-title ff-secondary text-center text-primary fw-normal">
-                                    <?php echo $row['category_name'] ?>
-                                </h5>
-                                <h1 class="mb-5"> </h1>
-                                <?php
-                                $categoryName = $row['category_name'];
-                            }
-                            ?>
-                            <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="tab-content">
-                                    <div id="tab-1" class="tab-pane fade show p-0 active">
-                                        <div class="row g-4">
-                                            <div class="col-lg-6">
-                                                <div class="d-flex align-items-center">
-                                                    <img class="flex-shrink-0 img-fluid rounded" src="img/menu-1.jpg" alt=""
-                                                        style="width: 80px;">
-                                                    <div class="w-100 d-flex flex-column text-start ps-4">
-                                                        <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                            <span>
-                                                                <?php echo $row['item_name'] ?>
-                                                            </span>
-                                                            <span class="text-primary">
-                                                                <?php echo $row['item_price'] ?>
-                                                            </span>
-                                                        </h5>
-                                                        <div>
-                                                            <small class="fst-italic">
-                                                                <?php echo $row['item_description'] ?>
-                                                            </small>
 
-                                                            <?php echo "<div class=\"d-flex justify-content-between item_add border-bottom pb-2\">
+
+
+                    try {
+                        $conn = new PDO("mysql:host=$serverName;dbname=$dbName", $userName, $password);
+                        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                        $sql = "SELECT * FROM `sb_category` C INNER JOIN sb_menu M ON C.category_id = M.category_id  WHERE outlet_id =" . $outlet_id;
+
+                        $result = $conn->query($sql);
+                        $resultCheck = $result->rowCount();
+                        if ($resultCheck > 0) {
+                            while ($row = $result->fetch()) {
+
+                                if ($categoryName != $row['category_name']) {
+                                    ?>
+                                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">
+                                        <?php echo $row['category_name'] ?>
+                                    </h5>
+                                    <h1 class="mb-5"> </h1>
+                                    <?php
+                                    $categoryName = $row['category_name'];
+                                }
+                                ?>
+
+                                <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
+                                    <div class="tab-content">
+                                        <div id="tab-1" class="tab-pane fade show p-0 active">
+                                            <div class="row g-4">
+                                                <div class="col-lg-6">
+                                                    <div class="d-flex align-items-center">
+                                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-1.jpg" alt=""
+                                                            style="width: 80px;">
+                                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                                <span>
+                                                                    <?php echo $row['item_name'] ?>
+                                                                </span>
+                                                                <span class="text-primary">
+                                                                    <?php echo "₹".$row['item_price'] ?>
+                                                                </span>
+                                                            </h5>
+                                                            <div>
+                                                                <small class="fst-italic">
+                                                                    <?php echo $row['item_description'] ?>
+                                                                </small>
+
+                                                                <?php echo "<div class=\"d-flex justify-content-between item_add border-bottom pb-2\">
                                                         <span  class=\"add_btn\" id=\"add_btn_" . $row['menu_id'] . "\">
                                                             <button onclick=\"addItemToCart(" . $row['menu_id'] . ",'" . $row['item_name'] . "')\">Add</button>
                                                         </span>
@@ -195,38 +216,47 @@ if ($resultCheck > 0) {
 
                                                         </span>
                                                     </div>"; ?>
-                                                        </div>
+                                                            </div>
 
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="tab-content">
-                                    <div id="tab-1" class="tab-pane fade show p-0 active">
-                                        <div class="row g-4">
-                                            <div class="col-lg-6">
-                                                <div class="d-flex align-items-center">
-                                                    <img class="flex-shrink-0 img-fluid rounded" src="" alt=""
-                                                        style="width: 80px;">
-                                                    <div class="w-100 d-flex flex-column text-start ps-4">
-                                                        <h5 class="d-flex justify-content-between pb-2">
-                                                            <span></span>
-                                                            <span class="text-primary"></span>
-                                                        </h5>
-                                                        <small class="fst-italic"></small>
+                                <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
+                                    <div class="tab-content">
+                                        <div id="tab-1" class="tab-pane fade show p-0 active">
+                                            <div class="row g-4">
+                                                <div class="col-lg-6">
+                                                    <div class="d-flex align-items-center">
+                                                        <img class="flex-shrink-0 img-fluid rounded" src="" alt=""
+                                                            style="width: 80px;">
+                                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                                            <h5 class="d-flex justify-content-between pb-2">
+                                                                <span></span>
+                                                                <span class="text-primary"></span>
+                                                            </h5>
+                                                            <small class="fst-italic"></small>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <?php
+                                <?php
+                            }
+
+                        } else {
+                            header("Location: ./signinPage.php?error=Invalid username or passwords");
+                            exit();
                         }
+                        ;
+                        $conn = null;
+                    } catch (PDOException $e) {
+                        echo "Error is : " . $sql . "<br>" . $e->getMessage();
                     }
                     ?>
                 </div>

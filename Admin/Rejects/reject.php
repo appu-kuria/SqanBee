@@ -329,7 +329,7 @@
                         }else{
                         }
                                                     //Read Data from DB
-                                                        $sql = "SELECT * FROM SB_Brands WHERE user_id = $_SESSION[user_id];";
+                                                        $sql = "SELECT * FROM sb_brands WHERE user_id = $_SESSION[user_id];";
                                                         $result = mysqli_query($conn, $sql);
                                                         $resultCheck = mysqli_num_rows($result);
                                                         if($resultCheck > 0){

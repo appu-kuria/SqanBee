@@ -29,7 +29,7 @@ include './../../../Constants/config.php';
                             try {
                                 $conn = new PDO("mysql:host=$serverName;dbname=$dbName", $userName, $password);
                                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                                $sql = "SELECT * FROM SB_Brands WHERE user_id = $_SESSION[user_id];";
+                                $sql = "SELECT * FROM sb_brands WHERE user_id = $_SESSION[user_id];";
                                 $result = $conn->query($sql);
                                 $resultCheck = $result->rowCount();
                                 if ($resultCheck > 0) {

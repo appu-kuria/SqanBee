@@ -6,7 +6,7 @@ try {
     $conn = new PDO("mysql:host=$serverName;dbname=$dbName", $userName, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "SELECT * FROM SB_Users WHERE user_id = $_SESSION[user_id];";
+    $sql = "SELECT * FROM sb_users WHERE user_id = $_SESSION[user_id];";
 
     // use exec() because no results are returned
     $result = $conn->query($sql);
@@ -271,7 +271,7 @@ try {
                                 $conn = new PDO("mysql:host=$serverName;dbname=$dbName", $userName, $password);
                                 // set the PDO error mode to exception
                                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                                $sql = "SELECT * FROM SB_Brands WHERE user_id = $_SESSION[user_id];";
+                                $sql = "SELECT * FROM sb_brands WHERE user_id = $_SESSION[user_id];";
 
                                 // use exec() because no results are returned
                                 $result = $conn->query($sql);

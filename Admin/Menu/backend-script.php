@@ -17,7 +17,7 @@ if ($conn->connect_errno) {
 $brand_id = !empty($_POST['brand_id']) ? $_POST['brand_id'] : '';
 if (!empty($brand_id)) {
 
-    $sql = "SELECT * FROM SB_Outlets WHERE brand_id = '$brand_id'";
+    $sql = "SELECT * FROM sb_outlets WHERE brand_id = '$brand_id'";
     $result = mysqli_query($conn, $sql);
     $resultCheck = mysqli_num_rows($result);
     if ($resultCheck > 0) {
@@ -36,7 +36,7 @@ if (!empty($brand_id)) {
 $outlet_id = !empty($_POST['outlet_id']) ? $_POST['outlet_id'] : '';
 if (!empty($outlet_id)) {
 
-    $sql = "SELECT * FROM SB_Outlets WHERE outlet_id = $outlet_id";
+    $sql = "SELECT * FROM sb_outlets WHERE outlet_id = $outlet_id";
     $result = mysqli_query($conn, $sql);
     $resultCheck = mysqli_num_rows($result);
     if ($resultCheck > 0) {

@@ -13,7 +13,7 @@ try {
     $conn = new PDO("mysql:host=$serverName;dbname=$dbName", $userName, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql =  "UPDATE SB_Outlets set outlet_name ='".$outletName."', outlet_location='".$place.
+    $sql =  "UPDATE sb_outlets set outlet_name ='".$outletName."', outlet_location='".$place.
     "', building_no= '".$buildingNo."', city='". $city."', state ='". $state ."', phone = '".$phone."' where outlet_id=".$outlet_id;
     // use exec() because no results are returned
     $conn->exec($sql);

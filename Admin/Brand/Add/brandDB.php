@@ -8,7 +8,7 @@ try {
     $conn = new PDO("mysql:host=$serverName;dbname=$dbName", $userName, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "INSERT INTO SB_Brands (user_id, brand_name) 
+    $sql = "INSERT INTO sb_brands (user_id, brand_name) 
     VALUES ('$_SESSION[user_id]','$brandName');";
     // use exec() because no results are returned
     $conn->exec($sql);

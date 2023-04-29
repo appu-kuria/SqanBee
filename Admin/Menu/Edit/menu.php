@@ -26,7 +26,7 @@ $result = $conn->query($sql) or die($conn->error);
                         <select id="brand_id" onchange="onBrandSelect()">
                             <option value="" selected disabled>Select a brand</option>
                             <?php
-                            $sql = "SELECT * FROM SB_Brands WHERE user_id = $_SESSION[user_id];";
+                            $sql = "SELECT * FROM sb_brands WHERE user_id = $_SESSION[user_id];";
                             $result = mysqli_query($conn, $sql);
                             $resultCheck = mysqli_num_rows($result);
                             if ($resultCheck > 0) {

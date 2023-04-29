@@ -14,7 +14,7 @@ try {
     $conn = new PDO("mysql:host=$serverName;dbname=$dbName", $userName, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "INSERT INTO SB_Outlets (brand_id, outlet_name, outlet_location, is_active, building_no, city, state, phone) 
+    $sql = "INSERT INTO sb_outlets (brand_id, outlet_name, outlet_location, is_active, building_no, city, state, phone) 
     VALUES ('$brand_id','$outletName','$place','1', '$buildingNo', '$city', '$state', '$phone');";
     // use exec() because no results are returned
     $conn->exec($sql);

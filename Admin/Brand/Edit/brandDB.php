@@ -17,7 +17,7 @@ echo"about to start connect database operation ";
 ?>
 <?php
 //Read Data from DB
-$sql = "SELECT * FROM SB_Users WHERE phonenumber = $_SESSION[phonenumber];";
+$sql = "SELECT * FROM sb_users WHERE phonenumber = $_SESSION[phonenumber];";
 $result = mysqli_query($conn, $sql);
 $resultCheck = mysqli_num_rows($result);
 if($resultCheck > 0){
@@ -34,7 +34,7 @@ if($resultCheck > 0){
 
 //Collecting te variables
 $brandName = $_POST['brandName'];
-$sql_insert = "INSERT INTO SB_Brands (user_id, brand_name) 
+$sql_insert = "INSERT INTO sb_brands (user_id, brand_name) 
 VALUES ('$user_id','$brandName');";
  mysqli_query($conn,$sql_insert);
  if(mysqli_error($conn)){

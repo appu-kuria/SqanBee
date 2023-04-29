@@ -16,7 +16,7 @@ if ($conn->connect_errno) {
 $outlet_id = !empty($_POST['outlet_id']) ? $_POST['outlet_id'] : '';
 if (!empty($outlet_id)) {
 
-    $sql = "SELECT * FROM SB_Category WHERE outlet_id = $outlet_id";
+    $sql = "SELECT * FROM sb_category WHERE outlet_id = $outlet_id";
     $result = mysqli_query($conn, $sql);
     $resultCheck = mysqli_num_rows($result);
     if ($resultCheck > 0) {
@@ -29,7 +29,7 @@ if (!empty($outlet_id)) {
     }
 
     echo "###";
-    $sql = "SELECT M.category_id, M.item_name, M.item_description, M.item_price, m.item_tag FROM SB_Category C Inner Join sb_menu M on c.category_id = m.category_id  WHERE outlet_id = $outlet_id";
+    $sql = "SELECT M.category_id, M.item_name, M.item_description, M.item_price, m.item_tag FROM sb_category C Inner Join sb_menu M on c.category_id = m.category_id  WHERE outlet_id = $outlet_id";
     $result = mysqli_query($conn, $sql);
     $resultCheck = mysqli_num_rows($result);
     if ($resultCheck > 0) {

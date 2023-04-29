@@ -23,7 +23,7 @@ try {
     $conn = new PDO("mysql:host=$serverName;dbname=$dbName", $userName, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "SELECT * FROM SB_Users WHERE phonenumber = $_POST[username] AND password = $_POST[password] ;";
+    $sql = "SELECT * FROM sb_users WHERE phonenumber = $_POST[username] AND password = $_POST[password] ;";
 
     // use exec() because no results are returned
     $result = $conn->query($sql);

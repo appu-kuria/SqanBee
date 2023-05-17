@@ -307,7 +307,7 @@ try {
 
 
         <!-- Back to Top -->
-        <i class="btn btn-lg btn-primary btn-lg-square back-to-top bi bi-cart" onclick=viewOrderList()></i>
+        <i class="btn btn-lg btn-primary btn-lg-square back-to-top bi bi-cart"  data-bs-toggle="modal" data-bs-target="#cartModal"  onclick=viewOrderList()></i>
     </div>
 
     <!-- JavaScript Libraries -->

@@ -52,8 +52,8 @@ try {
 } catch (PDOException $e) {
     echo "Error is : " . $sql . "<br>" . $e->getMessage();
 }
-?>
-
+?> 
+ 
 
 <!DOCTYPE html>
 <html lang="en">

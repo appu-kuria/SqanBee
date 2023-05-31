@@ -18,7 +18,7 @@ try {
         while ($row = $result->fetch()) {
             $outletId = $row['outlet_id'];
             // echo $outletId;
-            header('Location: ./../MenuPage/menusample.php?outlet_id=' . $outletId);
+            header('Location: ./../LandingPage/landingPage.php?outlet_id=' . $outletId);
         }
     } else {
         header('Location: ./../../Admin/SignIn/signinPage.php');

@@ -108,11 +108,11 @@ try {
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                     <div>
                     <?php echo
-                '<button type="button" onclick="payNow(\''.$paymentLink.'\')">
-                            <span class="fa fa-bars">Pay Now</span>
+                '<button class="btn btn-primary py-2 px-4" type="button" onclick="payNow(\''.$paymentLink.'\')">
+                            <span>Pay Now</span>
                         </button>
-                        <button type="button" onclick="viewMenu('.$outlet_id.')">
-                            <span class="fa fa-bars">View Menu</span>
+                        <button type="button" class="btn btn-primary py-2 px-4" onclick="viewMenu('.$outlet_id.')">
+                            <span>View Menu</span>
                         </button>
                         <a href="' . $paymentLink.'">
                             <li class="side-nav__item">
